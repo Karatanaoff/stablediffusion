@@ -15,7 +15,7 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 * **Obligatoire** : Cocher la case "Add Python 3.10 to PATH" en bas de la fenêtre avant de lancer l'installation.
 
 ### 2. Git
-* Télécharger et installer Git pour Windows. [ici pour le télécharger aussi]([https://git-scm.com/download/win](https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe))
+* Télécharger et installer Git pour Windows. [ici pour le télécharger aussi](https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe)
 * Valider toutes les étapes avec les options par défaut.
 
 ## Étape 2 : Téléchargement de l'application
