@@ -1,51 +1,30 @@
-# Installation de Stable Diffusion (Automatic1111)
+# Installation Automatique de Stable Diffusion (A1111)
 
-Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour Stable Diffusion localement sur Windows.
+Ce projet permet d'installer automatiquement l'interface WebUI d'Automatic1111 pour Stable Diffusion sur Windows. Le script gère le téléchargement des prérequis et applique de lui-même les correctifs nécessaires pour garantir un lancement sans erreur.
 
 ## Prérequis matériels
 * Système d'exploitation : Windows 10 / 11
-* Carte graphique : NVIDIA avec 6 Go de VRAM minimum
-* Espace disque : 30 Go libres (SSD recommandé)
+* Espace disque : 30 Go libres recommandés (SSD de préférence)
+* Connexion internet active
 
-## Étape 1 : Installation des dépendances
+## Étape 1 : Installation rapide
 
-### 1. Python 3.10.6
-* Télécharger la version exacte 3.10.6 depuis le site officiel de Python. [ici pour le télécharger](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe)
-* Lancer l'installateur.
-* **Obligatoire** : Cocher la case "Add Python 3.10 to PATH" en bas de la fenêtre avant de lancer l'installation.
-
-### 2. Git
-* Télécharger et installer Git pour Windows. [ici pour le télécharger aussi](https://github.com/git-for-windows/git/releases/download/v2.54.0.windows.1/Git-2.54.0-64-bit.exe)
-* Valider toutes les étapes avec les options par défaut.
-
-## Étape 2 : Téléchargement de l'application
-
-1. Créer un dossier vide (ex: `C:\\StableDiffusion`).
-2. Ouvrir le dossier, taper `cmd` dans la barre d'adresse de l'explorateur Windows et appuyer sur Entrée.
-3. Coller et exécuter la commande suivante :
-   ```text
-   git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
-
-## Étape 3 : Configuration et initialisation
-
-1. Ouvrir le nouveau dossier `stable-diffusion-webui`.
-2. Exécuter le fichier `webui-user.bat`.
-3. Patienter durant le téléchargement automatique des dépendances et du premier modèle (10 à 30 minutes selon la connexion).
-4. L'initialisation est terminée lorsque le terminal affiche :
-```text
-   Running on local URL: [http://127.0.0.1:7860](http://127.0.0.1:7860)
-```
-(vous pouvez avoir une erreur après, il faut fermer l'invité de commande et supprimer le ficher venv dans le dossier stable-diffusion et relancer le .bat)
-
-## Étape 4 : Utilisation quotidienne
-
-1. Maintenir la fenêtre de commande ouverte en arrière-plan.
-2. Ouvrir un navigateur et naviguer vers `http://127.0.0.1:7860`.
-3. Pour relancer l'application ultérieurement, exécuter à nouveau `webui-user.bat`.
-
-## Installation Rapide (Magique ✨)
-
-Pour installer le projet automatiquement en une seule fois, ouvrez une invite de commande (CMD) dans le dossier de votre choix, copiez-collez la commande ci-dessous et appuyez sur Entrée :
+1. Créez un dossier vide à l'emplacement où vous souhaitez installer le logiciel (ex: `C:\StableDiffusion`).
+2. Ouvrez ce dossier, tapez `cmd` dans la barre d'adresse de l'explorateur Windows et appuyez sur Entrée.
+3. Copiez-collez la commande suivante dans l'invite de commande et appuyez sur Entrée :
 
 ```cmd
 curl -L -o install.bat https://raw.githubusercontent.com/Karatanaoff/stablediffusion/main/install.bat && install.bat
+```
+
+4. Patientez durant le processus. Le script va vérifier vos prérequis (Git, Python), télécharger les fichiers, construire l'environnement et contourner les erreurs classiques de premier lancement.
+5. L'interface s'ouvrira automatiquement dans votre navigateur à la fin de l'installation.
+
+## Étape 2 : Lancement quotidien
+
+La commande d'installation ne sert qu'une seule fois. Pour vos futures utilisations :
+
+1. Ouvrez le dossier `stable-diffusion-webui` nouvellement créé sur votre disque.
+2. Double-cliquez sur le fichier `webui-user.bat`.
+3. Laissez la fenêtre de commande ouverte en arrière-plan.
+4. Accédez à l'interface via votre navigateur à l'adresse : `http://127.0.0.1:7860`
