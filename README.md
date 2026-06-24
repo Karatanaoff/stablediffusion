@@ -10,7 +10,7 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 ## Étape 1 : Installation des dépendances
 
 ### 1. Python 3.10.6
-* Télécharger la version exacte 3.10.6 depuis le site officiel de Python. (Lien ici)[https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe]
+* Télécharger la version exacte 3.10.6 depuis le site officiel de Python. [Lien ici](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe)
 * Lancer l'installateur.
 * **Obligatoire** : Cocher la case "Add Python 3.10 to PATH" en bas de la fenêtre avant de lancer l'installation.
 
