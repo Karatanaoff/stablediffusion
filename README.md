@@ -23,6 +23,8 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 1. Créer un dossier vide (ex: `C:\\StableDiffusion`).
 2. Ouvrir le dossier, taper `cmd` dans la barre d'adresse de l'explorateur Windows et appuyer sur Entrée.
 3. Coller et exécuter la commande suivante :
+   ```text
+   git clone [https://github.com/AUTOMATIC1111/stable-diffusion-webui.git](https://github.com/AUTOMATIC1111/stable-diffusion-webui.git)
 
 ## Étape 3 : Configuration et initialisation
 
