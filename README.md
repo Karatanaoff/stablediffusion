@@ -1,4 +1,4 @@
-readme_content = """# Installation de Stable Diffusion (Automatic1111)
+# Installation de Stable Diffusion (Automatic1111)
 
 Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour Stable Diffusion localement sur Windows.
 
@@ -23,3 +23,19 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 1. Créer un dossier vide (ex: `C:\\StableDiffusion`).
 2. Ouvrir le dossier, taper `cmd` dans la barre d'adresse de l'explorateur Windows et appuyer sur Entrée.
 3. Coller et exécuter la commande suivante :
+
+## Étape 3 : Configuration et initialisation
+
+1. Ouvrir le nouveau dossier `stable-diffusion-webui`.
+2. Exécuter le fichier `webui-user.bat`.
+3. Patienter durant le téléchargement automatique des dépendances et du premier modèle (10 à 30 minutes selon la connexion).
+4. L'initialisation est terminée lorsque le terminal affiche :
+```text
+   Running on local URL: [http://127.0.0.1:7860](http://127.0.0.1:7860)
+```
+
+## Étape 4 : Utilisation quotidienne
+
+1. Maintenir la fenêtre de commande ouverte en arrière-plan.
+2. Ouvrir un navigateur et naviguer vers `http://127.0.0.1:7860`.
+3. Pour relancer l'application ultérieurement, exécuter à nouveau `webui-user.bat`.
