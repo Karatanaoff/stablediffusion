@@ -45,9 +45,13 @@ if not exist "venv" (
     call venv\Scripts\deactivate.bat
 )
 
-:: 5. VACCIN 2 : Contourner le crash GPU automatiquement
-echo [!] Configuration de l'anti-crash GPU...
+:: 5. VACCIN 2 : Contourner le crash GPU et le depot Github introuvable
+echo [!] Configuration de l'anti-crash GPU et du depot miroir...
 powershell -Command "(Get-Content webui-user.bat) -replace '^set COMMANDLINE_ARGS=.*', 'set COMMANDLINE_ARGS=--skip-torch-cuda-test --precision full --no-half' | Set-Content webui-user.bat"
+findstr /C:"STABLE_DIFFUSION_REPO" webui-user.bat >nul
+if %errorlevel% neq 0 (
+    echo set STABLE_DIFFUSION_REPO=https://github.com/AUTOMATIC1111/stablediffusion.git>>webui-user.bat
+)
 
 :: 6. Lancement final
 echo [!] Lancement final...
