@@ -33,9 +33,20 @@ if not exist "stable-diffusion-webui" (
     git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 )
 
-:: 4. Lancer le programme
-echo [!] Lancement et installation des dependances...
+:: 4. VACCIN : Preparer l'environnement et corriger le bug CLIP automatiquement
 cd stable-diffusion-webui
+if not exist "venv\Scripts\activate.bat" (
+    echo [!] Application du correctif Python en arriere-plan...
+    python -m venv venv
+    call venv\Scripts\activate.bat
+    python -m pip install --upgrade pip >nul 2>nul
+    pip install setuptools==69.5.1 wheel >nul 2>nul
+    pip install https://github.com/openai/CLIP/archive/d50d76daa670286dd6cacf3bcd80b5e4823fc8e1.zip --no-build-isolation >nul 2>nul
+    call venv\Scripts\deactivate.bat
+)
+
+:: 5. Lancer le programme
+echo [!] Lancement final...
 call webui-user.bat
 
 pause
