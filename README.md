@@ -35,6 +35,7 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 ```text
    Running on local URL: [http://127.0.0.1:7860](http://127.0.0.1:7860)
 ```
+(vous pouvez avoir une erreur après, il faut fermer l'invité de commande et supprimer le ficher venv dans le dossier stable-diffusion et relancer le .bat)
 
 ## Étape 4 : Utilisation quotidienne
 
