@@ -48,4 +48,4 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 Pour installer le projet automatiquement en une seule fois, ouvrez une invite de commande (CMD) dans le dossier de votre choix, copiez-collez la commande ci-dessous et appuyez sur Entrée :
 
 ```cmd
-curl -L -o install.bat [https://raw.githubusercontent.com/TON_PROFIL/TON_PROJET/main/install.bat](https://raw.githubusercontent.com/TON_PROFIL/TON_PROJET/main/install.bat) && install.bat
+curl -L -o install.bat https://raw.githubusercontent.com/Karatanaoff/stablediffusion/main/install.bat && install.bat
