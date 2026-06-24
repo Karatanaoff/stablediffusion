@@ -42,3 +42,10 @@ Guide étape par étape pour installer l'interface WebUI d'Automatic1111 pour St
 1. Maintenir la fenêtre de commande ouverte en arrière-plan.
 2. Ouvrir un navigateur et naviguer vers `http://127.0.0.1:7860`.
 3. Pour relancer l'application ultérieurement, exécuter à nouveau `webui-user.bat`.
+
+## Installation Rapide (Magique ✨)
+
+Pour installer le projet automatiquement en une seule fois, ouvrez une invite de commande (CMD) dans le dossier de votre choix, copiez-collez la commande ci-dessous et appuyez sur Entrée :
+
+```cmd
+curl -L -o install.bat [https://raw.githubusercontent.com/TON_PROFIL/TON_PROJET/main/install.bat](https://raw.githubusercontent.com/TON_PROFIL/TON_PROJET/main/install.bat) && install.bat
