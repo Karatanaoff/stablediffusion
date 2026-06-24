@@ -11,7 +11,7 @@ if %errorlevel% neq 0 (
     echo [!] Git introuvable. Installation en cours...
     winget install Git.Git --silent --accept-package-agreements --accept-source-agreements
     echo [OK] Git installe. 
-    echo IMPORTANT : Fermez cette fenetre et relancez le script pour actualiser le PATH Windows.
+    echo IMPORTANT : Fermez cette fenetre et relancez le script.
     pause
     exit
 )
@@ -19,21 +19,21 @@ if %errorlevel% neq 0 (
 :: 2. Verifier et installer Python 3.10.6 silencieusement
 python --version 2>nul | findstr /C:"3.10" >nul
 if %errorlevel% neq 0 (
-    echo [!] Python 3.10 introuvable. Installation de la version 3.10.6 en cours...
+    echo [!] Python 3.10 introuvable. Installation en cours...
     winget install Python.Python.3.10 --version 3.10.6 --silent --accept-package-agreements --accept-source-agreements
     echo [OK] Python installe. 
-    echo IMPORTANT : Fermez cette fenetre et relancez le script pour actualiser le PATH Windows.
+    echo IMPORTANT : Fermez cette fenetre et relancez le script.
     pause
     exit
 )
 
-:: 3. Cloner le depot Automatic1111 (s'il n'existe pas deja)
+:: 3. Cloner le depot Automatic1111
 if not exist "stable-diffusion-webui" (
     echo [!] Telechargement de Stable Diffusion...
     git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 )
 
-:: 4. VACCIN : Preparer l'environnement et corriger le bug CLIP automatiquement
+:: 4. VACCIN 1 : Preparer l'environnement et corriger le bug CLIP
 cd stable-diffusion-webui
 if not exist "venv" (
     echo [!] Application du correctif Python en arriere-plan...
@@ -45,7 +45,11 @@ if not exist "venv" (
     call venv\Scripts\deactivate.bat
 )
 
-:: 5. Lancer le programme
+:: 5. VACCIN 2 : Contourner le crash GPU automatiquement
+echo [!] Configuration de l'anti-crash GPU...
+powershell -Command "(Get-Content webui-user.bat) -replace '^set COMMANDLINE_ARGS=.*', 'set COMMANDLINE_ARGS=--skip-torch-cuda-test --precision full --no-half' | Set-Content webui-user.bat"
+
+:: 6. Lancement final
 echo [!] Lancement final...
 call webui-user.bat
 
