@@ -35,7 +35,7 @@ if not exist "stable-diffusion-webui" (
 
 :: 4. VACCIN : Preparer l'environnement et corriger le bug CLIP automatiquement
 cd stable-diffusion-webui
-if not exist "venv\Scripts\activate.bat" (
+if not exist "venv" (
     echo [!] Application du correctif Python en arriere-plan...
     python -m venv venv
     call venv\Scripts\activate.bat
