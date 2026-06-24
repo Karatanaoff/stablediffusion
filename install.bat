@@ -5,24 +5,22 @@ echo ========================================================
 echo Installation automatique de Stable Diffusion (A1111)
 echo ========================================================
 
-:: 1. Verifier et installer Git silencieusement
+:: 1. Verifier et installer Git
 where git >nul 2>nul
 if %errorlevel% neq 0 (
     echo [!] Git introuvable. Installation en cours...
     winget install Git.Git --silent --accept-package-agreements --accept-source-agreements
-    echo [OK] Git installe. 
-    echo IMPORTANT : Fermez cette fenetre et relancez le script.
+    echo [OK] Git installe. Fermez cette fenetre et relancez.
     pause
     exit
 )
 
-:: 2. Verifier et installer Python 3.10.6 silencieusement
+:: 2. Verifier et installer Python 3.10.6
 python --version 2>nul | findstr /C:"3.10" >nul
 if %errorlevel% neq 0 (
     echo [!] Python 3.10 introuvable. Installation en cours...
     winget install Python.Python.3.10 --version 3.10.6 --silent --accept-package-agreements --accept-source-agreements
-    echo [OK] Python installe. 
-    echo IMPORTANT : Fermez cette fenetre et relancez le script.
+    echo [OK] Python installe. Fermez cette fenetre et relancez.
     pause
     exit
 )
@@ -33,10 +31,10 @@ if not exist "stable-diffusion-webui" (
     git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 )
 
-:: 4. VACCIN 1 : Preparer l'environnement et corriger le bug CLIP
+:: 4. VACCIN 1 : Environnement et bug CLIP
 cd stable-diffusion-webui
 if not exist "venv" (
-    echo [!] Application du correctif Python en arriere-plan...
+    echo [!] Application du correctif Python...
     python -m venv venv
     call venv\Scripts\activate.bat
     python -m pip install --upgrade pip >nul 2>nul
@@ -45,15 +43,17 @@ if not exist "venv" (
     call venv\Scripts\deactivate.bat
 )
 
-:: 5. VACCIN 2 : Contourner le crash GPU et le depot Github introuvable
-echo [!] Configuration de l'anti-crash GPU et du depot miroir...
-powershell -Command "(Get-Content webui-user.bat) -replace '^set COMMANDLINE_ARGS=.*', 'set COMMANDLINE_ARGS=--skip-torch-cuda-test --precision full --no-half' | Set-Content webui-user.bat"
-findstr /C:"STABLE_DIFFUSION_REPO" webui-user.bat >nul
-if %errorlevel% neq 0 (
-    echo set STABLE_DIFFUSION_REPO=https://github.com/AUTOMATIC1111/stablediffusion.git>>webui-user.bat
-)
+:: 5. VACCIN 2 : Creation d'un fichier de lancement parfait
+echo [!] Configuration de l'anti-crash et du depot miroir...
+echo @echo off> webui-user.bat
+echo set PYTHON=>> webui-user.bat
+echo set GIT=>> webui-user.bat
+echo set VENV_DIR=>> webui-user.bat
+echo set COMMANDLINE_ARGS=--skip-torch-cuda-test --precision full --no-half>> webui-user.bat
+echo set STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git>> webui-user.bat
+echo call webui.bat>> webui-user.bat
 
-:: 6. Lancement final
+:: 6. Lancement
 echo [!] Lancement final...
 call webui-user.bat
 
